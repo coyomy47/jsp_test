@@ -7,16 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form method="mi2.jsp">
+
       <%  int result=0;
 String s1= request.getParameter("radiotext");
 if(s1==null){
 	s1="one";
-	<input type = "radio" name = "radiotext" value = "one">
+	
 }
 
 %>
-        <input type = "radio" name = "radiotext" value = "one">one
+<form method="get">
+        <input type = "radio" name = "radiotext" value = "one" checked="checked">one
         <input type = "radio" name = "radiotext" value = "two">two
         <input type = "radio" name = "radiotext" value = "three">three</br>
         <input type="text" name="s1" value="<%=s1 %>"/>

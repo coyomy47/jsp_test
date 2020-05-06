@@ -9,7 +9,7 @@ import java.util.List;
 public class BookDAO {
 	public static List<Book> findAll() throws Exception {
         String sql = "SELECT b.*, c.categoryName"+
-        			 "FROM  book b LEFT JOIN category c ON B.id = c.id";
+        			 "FROM  book b LEFT JOIN category c ON B.categoryId = c.id";
 
         try (Connection connection = DB.getConnection("book");
              PreparedStatement statement = connection.prepareStatement(sql);
@@ -23,6 +23,7 @@ public class BookDAO {
                 Book.setCategoryName(resultSet.getString("categoryname"));
                 Book.setPrice(resultSet.getInt("price"));
                 Book.setPublisher(resultSet.getString("publisher"));
+                Book.setCategoryId(resultSet.getInt("categoryId"));
                 list.add(Book);
             }
             return list;
